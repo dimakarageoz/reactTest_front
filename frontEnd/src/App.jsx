@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    StaticRouter, // for server rendering
     Route,
     Switch,
     Redirect,

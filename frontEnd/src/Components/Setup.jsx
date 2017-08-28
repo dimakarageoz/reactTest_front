@@ -36,11 +36,12 @@ class Setup extends PureComponent {
     }
     checkPassword() {
         let value = this.refs.password.value;
-        document.getElementById('password').style.borderColor =
+        document.getElementById('password').style.border = `1px solid ${
             (value.length < 8) ? 'red' : (
                 (value.length < 11) ? 'orange' :
                 'green'
             )
+        }`
         
  }
     render() {
@@ -54,7 +55,7 @@ class Setup extends PureComponent {
                     </div>
                     <div className="auth__input-block">
                         <p>Input your password</p>
-                        <input onChange={this.checkPassword} target="none" id="password" className="auth__input" ref="password" type="password" />
+                        <input onChange={this.checkPassword} id="password" className="auth__input" ref="password" type="password" />
                     </div>
                     <div className="auth__input-block">
                         <p>Please, confirm your password</p>
