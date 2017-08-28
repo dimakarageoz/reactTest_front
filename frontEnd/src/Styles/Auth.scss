@@ -1,0 +1,64 @@
+.auth {
+    margin: 100px auto 0;
+    width: 350px;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    color: #8540d7;
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+    
+    &__title {
+        font-size: 32px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 15px 0;
+    }
+    &__input-block {
+        margin: 10px 0;
+        width: 100%;
+        font-size: 14px;
+        font-family: 'Archivo', sans-serif;
+        color: #848484;
+        box-sizing: border-box;
+    }
+    &__input {
+        width: 80%;
+        height: 25px;
+        border-radius: 5px;
+        margin-top: 7px;
+        font-size: 14px;
+        font-family: 'Lato', sans-serif;        
+        text-align: center;
+        border: 1px solid #cecdcd;
+    }
+    &__submit {
+        border-radius: 5px;
+        margin-top: 10px;
+        width: 80%;
+        font-size: 22px;
+        font-family: 'Lato', sans-serif;
+        color: white;
+        height: 40px;
+        border: 0;
+        background: #8540d7;
+        &:hover {
+            background: #6117b9;            
+        }
+    }
+}
+
+input {
+    &[target=secure-bad] {
+        border-color: red;
+    }
+    &[target=secure-medium] {
+        border-color: orange;
+    }
+    &[target=secure-good] {
+        border-color: green;
+    }
+}

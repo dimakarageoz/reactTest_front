@@ -1,0 +1,46 @@
+.channel {
+    width: 30%;
+    overflow: auto;
+    height: 100%;
+    border-right: 1px #b3b3b3 solid;
+    &__item {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        cursor: pointer;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &__icon {
+            margin: 0 10px;
+            color: #59129b;
+            border: 0;
+            border-radius: 50%;
+            &:hover {
+                background: rgba(0, 0, 0, .2);
+            }
+        }
+        &__p {
+            height: 17px;
+            margin: 10px 0;
+            margin-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &__title {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: blueviolet;
+            font-size: 30px;
+            font-weight: 700;
+        }
+    &:hover {
+        background: rgba(blueviolet, .2);
+    }
+    &:focus {
+        background: rgba(blueviolet, .4)
+    }
+    }
+}
