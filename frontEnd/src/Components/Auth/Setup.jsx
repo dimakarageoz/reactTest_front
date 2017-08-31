@@ -1,15 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import path from '../Services/path.js';
-import { queryBody } from '../Services/API.js';
-import { setToken, setEmail } from '../Services/helper.js';
+import path from '../../Services/path.js';
+import { request } from '../../Services/API.js';
+import { setToken, setEmail } from '../../Services/helper.js';
 
 class Setup extends PureComponent {
     constructor(props) {
         super(props);
         this.submit = this.submit.bind(this);
         this.checkPassword = this.checkPassword.bind(this);
-        this.vis = false;
     }
 
     submit(e) {
@@ -19,10 +18,12 @@ class Setup extends PureComponent {
             this.refs.password.value = this.refs.confirm.value = '';
             document.getElementById('ErrorMessage').classList.add('show');
         } else {
-            queryBody("POST", path.setup, {
-                email: email.value,
-                password: password.value,
-                confirm: confirm.value
+            request("POST", path.setup, {
+                body: {
+                    email: email.value,
+                    password: password.value,
+                    confirm: confirm.value
+                }
             })
             .then(({ token, email }) => {
                 setToken(token);
@@ -35,8 +36,9 @@ class Setup extends PureComponent {
         } 
     }
     checkPassword() {
-        let value = this.refs.password.value;
-        document.getElementById('password').style.border = `1px solid ${
+        const passwordElem = this.refs.password
+        let value = passwordElem.value;
+        passwordElem.style.border = `1px solid ${
             (value.length < 8) ? 'red' : (
                 (value.length < 11) ? 'orange' :
                 'green'

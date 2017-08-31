@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeedItem = ({ feed, chooseFeed }) => {
+const FeedItem = ({ feed = {}, chooseFeed = () => {}}) => {
 
     const chooseMethod = () => chooseFeed(feed);
     

@@ -1,23 +1,24 @@
 import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import path from '../Services/path.js';
-import { queryBody } from '../Services/API.js';
-import { setToken, setEmail } from '../Services/helper.js';
+import path from '../../Services/path.js';
+import { request } from '../../Services/API.js';
+import { setToken, setEmail } from '../../Services/helper.js';
 
 
 class Login extends PureComponent {
     constructor(props) {
         super(props);
         this.submit = this.submit.bind(this);
-        this.vis = false;
     }
 
     submit(e) {
         e.preventDefault();
         let { email, password} = this.refs;
-        queryBody("POST", path.login, {
-            email: email.value,
-            password: password.value
+        request("POST", path.login, {
+            body: {
+                email: email.value,
+                password: password.value
+            }
         })
         .then(({ token, email }) => {
             setToken(token);

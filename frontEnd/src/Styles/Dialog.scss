@@ -1,11 +1,12 @@
 .full-layout {
     position: fixed;
-    top:0;
+    top: 0;
     z-index: 100;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,.3)
+    background: rgba(0, 0, 0, .3)
 }
+
 .dialog {
     position: fixed;
     padding: 15px;
@@ -13,7 +14,7 @@
     z-index: 300;
     left: 25%;
     top: 200px;
-    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     background: white;
     &__title {
         color: blueviolet;
@@ -35,7 +36,7 @@
         background: blueviolet;
         border: 0;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
         &:hover {
             background: #7c26cc;
         }
@@ -60,26 +61,34 @@
         }
     }
     &__radio {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    &__word {
-        font-family: 'Lato';
-        display: flex;
-        align-items: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &__word {
+            font-family: 'Lato';
+            display: flex;
+            align-items: center;
+        }
+        &::after {
+            position: relative;
+            display: block;
+            width: 16px;
+            height: 16px;
+            box-sizing: border-box;
+            border: 1px solid #9fa8b6;
+            border-radius: 50%;
+            content: "";
+        }
+        &:checked::after {
+            border: white;
+            background: blueviolet;
+        }
     }
-    &::after{
-        position: relative;
-        display: block;
-        width: 16px;
-        height: 16px;
-        box-sizing: border-box;
-        border: 1px solid #9fa8b6;
-        border-radius: 50%;
-        content: "";
-    }
-    &:checked::after {
-        border: white;
-        background: blueviolet;
-    }
-    }
+}
+
+.dialog--margin-bottom {
+    margin-bottom: 42px;
+}
+
+.dialog--margin-right {
+    margin-right: 22px;
 }

@@ -5,8 +5,8 @@ import {
     Redirect,
     Link
 } from 'react-router-dom';
-import Setup from './Components/Setup.jsx';
-import Login from './Components/Login.jsx';
+import Setup from './Components/Auth/Setup.jsx';
+import Login from './Components/Auth/Login.jsx';
 import Home from './Components/Home.jsx';
 import { getToken } from './Services/helper.js'
 import './Styles/index.scss';

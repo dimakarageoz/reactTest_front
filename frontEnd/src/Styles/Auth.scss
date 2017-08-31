@@ -50,15 +50,3 @@
         }
     }
 }
-
-input {
-    &[target=secure-bad] {
-        border-color: red;
-    }
-    &[target=secure-medium] {
-        border-color: orange;
-    }
-    &[target=secure-good] {
-        border-color: green;
-    }
-}

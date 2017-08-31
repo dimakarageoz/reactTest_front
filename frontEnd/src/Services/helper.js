@@ -7,6 +7,4 @@ export const getEmail = () => localStorage.getItem('email');
 
 export const removeProps = () => localStorage.clear();
 
-
-
-export const queryWithToken = () => `?token=${getToken()}`
+export const requestWithToken = () => `?token=${getToken()}`

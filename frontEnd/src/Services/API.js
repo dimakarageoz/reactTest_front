@@ -1,6 +1,6 @@
 import host from './host.js';
 import fetchIntercept from 'fetch-intercept';
-import { getToken, removeToken, queryWithToken } from './helper.js'
+import { getToken, removeToken, requestWithToken } from './helper.js'
 
 
 
@@ -12,9 +12,9 @@ let options = {
     mode: 'cors'
 }
 
-const unregister = fetchIntercept.register({
+fetchIntercept.register({
     request: function (url, config) {
-        url = (url !== `${host}/setup` && url !== `${host}/login`) ? `${url}${queryWithToken()}`: url
+        url = (url !== `${host}/setup` && url !== `${host}/login`) ? `${url}${requestWithToken()}`: url
         if (getToken() === 'undefined') {
             removeToken();
             location.reload()
@@ -33,17 +33,11 @@ const unregister = fetchIntercept.register({
     },
 });
 
-
-export const queryBody = (method, path, data) => {
-    options.body = JSON.stringify(data);
+export const request = (method, path, data) => {
+    const params = (data.params) ? `/${data.params}` : '';
+    
     options.method = method;
-    return fetch(`${host}${path}`, options)
+    options.body = (data.body) ? JSON.stringify(data.body): null; 
+    
+    return fetch(`${host}${path}${params}`, options)
 }
-
-export const queryParams = (method, path, data) => {
-    options.method = method;
-    options.body = null;
-    let url = (data) ? `${host}${path}/${data}`:`${host}${path}`;
-    return fetch(url, options)
-}
-
