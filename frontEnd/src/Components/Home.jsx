@@ -10,7 +10,6 @@ import Feed from './Feed/FeedContent.jsx';
 import Header from './Header.jsx';
 import { removeProps } from '../Services/helper.js'
 
-//ssh
 
 class HomePage extends Component {
     constructor(props) {
